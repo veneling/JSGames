@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles/level-chooser-styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+    <div id='level-chooser'>
+        <div id='levels-board'>
+            <ul>
+                <li id='left-arrow'>&lArr;</li>
+                <li id='1'>1</li>
+                <li id='2'>2</li>
+                <li id='3'>3</li>
+                <li id='4'>4</li>
+                <li id='5'>5</li>
+                <li id='6'>6</li>
+                <li id='7'>7</li>
+                <li id='8'>8</li>
+                <li id='9'>9</li>
+                <li id='right-arrow'>&rArr;</li>
+            </ul>
+        </div>
+        <div id='panel-titles'>
+            <div id='left-panel-title'>MAZE</div>
+            <div id='right-panel-title'>SOLUTION</div>
+        </div>
+        <div id='level-display'>
+            <div id='left-panel-maze'></div>
+            <div id='right-panel-solution'></div>
+        </div>
+        <div class="text-centered" onclick="playLevel(0)">
+            Play
+        </div>
+    </div>
+</body>
+
+<script src="levels.js"></script>
+<script src="element.js"></script>
+<script src="game.js"></script>
+
+</html>

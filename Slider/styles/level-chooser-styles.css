@@ -1,0 +1,50 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2em;   
+}
+
+#levels-board li {
+    padding: 0 5px 0 5px;
+    display: inline-block;
+}
+
+#levels-board ul {
+    list-style: none;
+    text-align: center;
+}
+
+.text-centered {
+    text-align: center;
+}
+
+#level-display, #panel-titles {
+    width: 100%;
+}
+
+#right-panel-solution, #left-panel-maze, #left-panel-title, #right-panel-title {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+#left-panel-maze, #left-panel-title {
+    float: left;
+}
+
+#left-panel-maze > table {
+    float: right;
+    padding-right: 20px;
+}
+
+#right-panel-solution {
+    float: right;
+}
+
+#right-panel-solution > table, #right-panel-title {
+    float: left;
+    padding-left: 20px;
+}
+
+#left-panel-title {
+    text-align: right;
+    padding-right: 20px;
+}
