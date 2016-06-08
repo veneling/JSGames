@@ -26,6 +26,7 @@ class Level {
         let blockCodes = ((type == 'maze') ? this.levels[level].matrix : this.levels[level].solution);
         let counter = -1;
         let table = document.createElement('table');
+        let isEmpty = false;
 
         for (var y = 0; y < this.currentLevelHeight; y++) {
             let tr = document.createElement('tr');
@@ -64,7 +65,9 @@ class Level {
                     case 'a':
                         elSVG = el.createDot(); break;
                     case 'e':
-                        elSVG = el.createEmpty(); break;
+                        elSVG = el.createEmpty();
+                        isEmpty = true;
+                        break;
                     default:
                         break;
                 }
@@ -74,7 +77,9 @@ class Level {
                 td.setAttribute('id', y + '' + x);
                 td.setAttribute('width', '90px');
                 td.setAttribute('height', '90px');
+                td.setAttribute('isEmpty', isEmpty);
                 tr.appendChild(td);
+                isEmpty = false;
             }
             table.appendChild(tr);
         }
@@ -102,18 +107,22 @@ class Level {
 
                 let cell = {
                     canMoveTo: [],
-                    isClicked: false
+                    isClicked: false,
+                    movable: true //except for the start and end element
                 };
-                if (x > 0 && this.levelArray[y][x - 1] == 0) {
-                    cell.canMoveTo.push('left');
+                console.log('cell ' + gameTable.rows[y].cells[x].getAttribute('id') + ' ' + gameTable.rows[y].cells[x].getAttribute('isEmpty'));
+                if (x > 0 && gameTable.rows[y].cells[x - 1]) {
+                    if (gameTable.rows[y].cells[x - 1].getAttribute('isEmpty') == 'true')
+                        cell.canMoveTo.push('left');
                 }
-                if (x < row.cells.length && this.levelArray[y][x + 1] == 0) {
+                if (x < row.cells.length - 1 && gameTable.rows[y].cells[x + 1].getAttribute('isEmpty') == 'true') {
                     cell.canMoveTo.push('right');
                 }
-                if (y > 0 && this.levelArray[y - 1][x] == 0) {
-                    cell.canMoveTo.push('up');
+                if (y > 0 && gameTable.rows[y - 1].cells[x]) {
+                    if (gameTable.rows[y - 1].cells[x].getAttribute('isEmpty') == 'true')
+                        cell.canMoveTo.push('up');
                 }
-                if (y < gameTable.rows.length - 1 && this.levelArray[y + 1][x] == 0) {
+                if (y < gameTable.rows.length - 1 && gameTable.rows[y + 1].cells[x].getAttribute('isEmpty') == 'true') {
                     cell.canMoveTo.push('down');
                 }
 
