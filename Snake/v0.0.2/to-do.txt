@@ -1,0 +1,4 @@
+- draw metoda na level object-a da chertae border-ite s tynka linia ot wynshnata strana na stenata
+- da se wkarat 2 masiva s koordinati - ediniqt za risuwaneto na zmiata, drugiat da dyrji koordinatite na nivoto. Chertaneto na zmiata da se syobrazqwa s koordinatite za niwoto
+- da se naprawqt vectorni grafiki na glavata, tialoto i opashkata na zmiata
+- da se naprawi splash screen (ne e vajno sega)
